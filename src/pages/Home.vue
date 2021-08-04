@@ -2,48 +2,50 @@
   <div class="home container-fluid">
     <div class="row">
       <div class="col">
-        <CarForm />
+        <img src="../assets/stop-sign.jpg" alt="stop-sign">
+        <h3>This is <i>NOT</i> Creglist! </h3>
+        <p>Oh you know well, well click an image below or the nav bar to see our wares weary travler. </p>
       </div>
     </div>
     <div class="row">
-      <div class="col-4" v-for="c in cars" :key="c.id">
-        <!-- Data passed through prop ':car' to child -->
-        <CarCard :car="c"/>
+      <div class="col-md-3">
+        <router-link :to="{name: 'CarsPage'}">
+          <h4>Cars:</h4>
+          <img src="../assets/cars.jpg" alt="cars">
+        </router-link>
+      </div>
+      <div class="col-md-3">
+        <router-link :to="{name: 'HousesPage'}">
+          <h4>Houses:</h4>
+          <img src="../assets/houses.jpg" alt="houses">
+        </router-link>
+      </div>
+      <div class="col-md-3">
+        <router-link :to="{name: 'JobsPage'}">
+          <h4>Jobs:</h4>
+          <img src="../assets/jobs.jpg" alt="jobs">
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
+
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
-import {AppState} from '../AppState.js'
-import {carsService } from '../services/CarsService'
-import CarCard from '../components/CarCard.vue'
-import CarForm from '../components/CarForm.vue'
+// FIXME i think i can delete the page imports cause jsut router
+import CarsPage from '../pages/CarsPage.vue'
+import JobsPage from '../pages/JobsPage.vue'
+import HousesPage from '../pages/HousesPage.vue'
 
 export default {
   name: 'Home',
   setup(){
-    // state
 
-    // mounted
-    onMounted(async ()=>{
-      try {
-        await carsService.getCars()
-      } catch (error) {
-        console.error(error)
-      }
-    })
     return {
       // state,
-      // computeds
-      cars: computed(() => AppState.cars)
       // methods
     }
   },
-  components: {
-    CarCard,
-    CarForm
+  components: { CarsPage, JobsPage, HousesPage }
   }
-}
 </script>

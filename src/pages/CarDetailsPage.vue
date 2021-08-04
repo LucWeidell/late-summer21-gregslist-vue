@@ -1,11 +1,15 @@
 <template>
-  <div class="car-details-page">
-    <h1>Welcome to the car details</h1>
-    {{car.make}} - {{car.model}}
-    <br>
-    {{car.description}}
-
-    <button class="btn btn-danger" @click="destroy">Delete</button>
+  <div class="car-details-page row">
+    <div class="col-md-11">
+      <img :src="car.imgUrl" class="w-100" :alt="car.make - car.model">
+      <div class="p-3">
+        <div class="text-center">
+          <p><b>{{car.year}} - {{car.make}} - {{car.model}}</b></p>
+        </div>
+        <p>{{car.description}}</p>
+        <p><em>{{car.price}}</em></p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,7 +37,7 @@ export default {
         try {
           await carsService.destroy(route.params.id)
           //  navigate user back to home
-          router.push({name: 'Home'})
+          router.push({name: 'CarsPage'})
         } catch (error) {
           console.error(error)
         }
