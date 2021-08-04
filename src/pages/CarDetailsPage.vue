@@ -32,7 +32,7 @@ export default {
       }
     })
     return {
-      car: computed(()=> AppState.activeCar),
+      car: computed(()=> AppState.activeItem),
       async destroy(){
         try {
           await carsService.destroy(route.params.id)

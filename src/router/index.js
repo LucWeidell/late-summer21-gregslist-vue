@@ -47,7 +47,7 @@ const routes = [
   {
     // required param ':id'
     path: '/job-details/:id',
-    name: 'CarDetails',
+    name: 'JobDetails',
     component: JobDetailsPage
   }
 ]

@@ -32,10 +32,6 @@
 
 
 <script>
-// FIXME i think i can delete the page imports cause jsut router
-import CarsPage from '../pages/CarsPage.vue'
-import JobsPage from '../pages/JobsPage.vue'
-import HousesPage from '../pages/HousesPage.vue'
 
 export default {
   name: 'Home',
@@ -46,6 +42,5 @@ export default {
       // methods
     }
   },
-  components: { CarsPage, JobsPage, HousesPage }
   }
 </script>
